@@ -1,0 +1,16 @@
+ATIVIDADE 1
+
+SELECT tb_jogador.nome jogador, tb_time.nome time from tb_partida inner join tb_time on tb_partida.codigo_mandante=tb_time.id or tb_partida.codigo_visitante=tb_time.id inner join tb_jogador on tb_time.id=tb_jogador.codigo_time group by time, jogador
+
+
+ATIVIDADE 2
+
+SELECT tb_time.nome time, tb_partida.data data_partida, sum(tb_detalhamentopartida.quantidade_gol) gol, sum(tb_detalhamentopartida.quantidade_cartao_amarelo) cartão_amarelo, sum(tb_detalhamentopartida.quantidade_cartao_vermelho) cartão_vermelho from tb_detalhamentopartida inner join tb_partida on tb_partida.id=tb_detalhamentopartida.codigo_partida inner join tb_campeonato on tb_campeonato.id=tb_partida.codigo_campeonato inner join tb_jogador on tb_jogador.id=tb_detalhamentopartida.codigo_jogador inner join tb_time on tb_time.id=tb_jogador.codigo_time GROUP BY data_partida, time
+
+
+ATIVIDADE 3
+
+
+SELECT tb_time.nome time, tb_campeonato.nome campeonato, sum(tb_detalhamentopartida.quantidade_gol) gol, sum(tb_detalhamentopartida.quantidade_cartao_amarelo) cartão_amarelo, sum(tb_detalhamentopartida.quantidade_cartao_vermelho) cartão_vermelho from tb_detalhamentopartida inner join tb_partida on tb_partida.id=tb_detalhamentopartida.codigo_partida inner join tb_campeonato on tb_campeonato.id=tb_partida.codigo_campeonato inner join tb_jogador on tb_jogador.id=tb_detalhamentopartida.codigo_jogador inner join tb_time on tb_time.id=tb_jogador.codigo_time GROUP BY campeonato, time
+
+ATIVIDADE 4
